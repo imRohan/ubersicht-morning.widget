@@ -1,6 +1,8 @@
 # Übersicht | Morning Widget
 
-A desktop clone of the popular Google Chrome extension, [Momentum](http://momentumdash.com/).
+![Mou icon](http://i.imgur.com/ioZfN3u.png)
+
+####Morning is a desktop clone of the popular Google Chrome extension, [Momentum](http://momentumdash.com/).
 
 ###v1.0
 - Name and time segments added
