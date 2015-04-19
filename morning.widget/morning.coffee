@@ -9,8 +9,8 @@ refreshFrequency: 30000
 style: """
   
   color: #fff
-  font-family: Helvetica Neue
-
+  font-family: Helvetica Neue, Arial
+  
   .container
    margin-top:30%
    height:300px
