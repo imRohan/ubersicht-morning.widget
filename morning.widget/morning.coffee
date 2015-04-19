@@ -81,7 +81,7 @@ update: (output, domEl) ->
   
   #DOM manipulation 
   $(domEl).find('.salutation').text("Good #{timeSegment},")
-  $(domEl).find('.name').text("#{name}") 
+  $(domEl).find('.name').text("#{name}.") 
   $(domEl).find('.hour').text("#{hour}")
   $(domEl).find('.min').text("#{minutes}") 
 
