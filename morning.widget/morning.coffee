@@ -1,8 +1,8 @@
 # Rohan Likhite rohanlikhite.com
 command: 'echo  "Lovingly crafted by Rohan"'
 
-#Refresh time (default: one minute 60000)
-refreshFrequency: 60000
+#Refresh time (default: 1/2 minute 30000)
+refreshFrequency: 30000
 
 
 #Body Style
@@ -71,9 +71,11 @@ update: (output, domEl) ->
   hour = date.getHours()
   minutes = date.getMinutes()
 
-  #Logic to figure out segment of day
+  #Quick and dirty fix for single digit minutes
   if minutes < 10
     minutes = "0"+ minutes
+
+  #timeSegment logic
   timeSegment = segments[0] if 4 < hour < 12
   timeSegment = segments[1] if 12 < hour < 17
   timeSegment = segments[2] if 17 < hour < 24
