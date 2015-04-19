@@ -76,8 +76,8 @@ update: (output, domEl) ->
     minutes = "0"+ minutes
 
   #timeSegment logic
-  timeSegment = segments[0] if 4 < hour < 12
-  timeSegment = segments[1] if 12 < hour < 17
+  timeSegment = segments[0] if 4 < hour <= 11
+  timeSegment = segments[1] if 11 < hour <= 17
   timeSegment = segments[2] if 17 < hour < 24
   timeSegment = segments[3] if  hour < 4
   
