@@ -20,31 +20,29 @@ style: """
    text-align:center
    margin-left:30%
 
-
   .time
-    font-size: 10em
-    color:#fff
-    font-weight:700
-    text-align:center
-    
+   font-size: 10em
+   color:#fff
+   font-weight:700
+   text-align:center   
 
   .text
-    font-size: 4em
-    color:#fff
-    font-weight:700    
+   font-size: 4em
+   color:#fff
+   font-weight:700    
 
   .hour
-  	margin-right:15px
+   margin-right:15px
 
   .min
-    margin-left:-35px
+   margin-left:-35px
 
   
 """
 
 
 #Render function
-render: (_) -> """
+render: -> """
   <div class="container">
   <div class="time">
   <span class="hour"></span>:
@@ -73,7 +71,7 @@ update: (output, domEl) ->
 
   #Quick and dirty fix for single digit minutes
   if minutes < 10
-    minutes = "0"+ minutes
+     minutes = "0"+ minutes
 
   #timeSegment logic
   timeSegment = segments[0] if 4 < hour <= 11
@@ -82,7 +80,7 @@ update: (output, domEl) ->
   timeSegment = segments[3] if  hour <= 4
 
   #24 - 12 Hour conversion
-  hour=hour%12
+  hour= hour%12 if hour > 12
   
   #DOM manipulation 
   $(domEl).find('.salutation').text("Good #{timeSegment},")
