@@ -70,8 +70,7 @@ update: (output, domEl) ->
   minutes = date.getMinutes()
 
   #Quick and dirty fix for single digit minutes
-  if minutes < 10
-     minutes = "0"+ minutes
+  minutes = "0"+ minutes if minutes < 10
 
   #timeSegment logic
   timeSegment = segments[0] if 4 < hour <= 11
