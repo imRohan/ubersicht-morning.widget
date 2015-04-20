@@ -80,6 +80,9 @@ update: (output, domEl) ->
   timeSegment = segments[1] if 11 < hour <= 17
   timeSegment = segments[2] if 17 < hour <= 24
   timeSegment = segments[3] if  hour <= 4
+
+  #24 - 12 Hour conversion
+  hour=hour%12
   
   #DOM manipulation 
   $(domEl).find('.salutation').text("Good #{timeSegment},")
