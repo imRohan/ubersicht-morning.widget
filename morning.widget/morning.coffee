@@ -1,5 +1,5 @@
 # Rohan Likhite rohanlikhite.com
-command: 'echo  "Lovingly crafted by Rohan"'
+command: "finger `whoami` | awk -F: '{ print $3 }' | head -n1 | sed 's/^ //'"
 
 #Refresh time (default: 1/2 minute 30000)
 refreshFrequency: 30000
@@ -61,8 +61,10 @@ update: (output, domEl) ->
   #Time Segmends for the day
   segments = ["morning", "afternoon", "evening", "night"]
 
-  #Your name goes here
-  name = 'Rohan'
+  #Grab the name of the current user. 
+  #If you would like to edit this replace "output.split(' ')" with your name
+  name = output.split(' ')
+
 
   #Creating a new Date object
   date = new Date()
@@ -83,7 +85,7 @@ update: (output, domEl) ->
   
   #DOM manipulation 
   $(domEl).find('.salutation').text("Good #{timeSegment},")
-  $(domEl).find('.name').text("#{name}.") 
+  $(domEl).find('.name').text("#{name[0]}.") 
   $(domEl).find('.hour').text("#{hour}")
   $(domEl).find('.min').text("#{minutes}") 
 
