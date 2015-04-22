@@ -72,6 +72,7 @@ update: (output, domEl) ->
   #Options: (true/false)
   showAmPm = true; 
   showName = true; 
+  militaryTime = false; #Military Time = 24 hour time 
 
   #Time Segmends for the day
   segments = ["morning", "afternoon", "evening", "night"]
@@ -95,21 +96,23 @@ update: (output, domEl) ->
   timeSegment = segments[2] if 17 < hour <= 24
   timeSegment = segments[3] if  hour <= 4
 
-  #24 - 12 Hour conversion
-  hour= hour%12 if hour > 12
-
   #AM/PM String logic
   if hour < 12
     half = "AM"  
   else
     half = "PM"
+
+  #24 - 12 Hour conversion
+  hour= hour%12 if hour > 12 && !militaryTime
+
+  
   
   #DOM manipulation 
   $(domEl).find('.salutation').text("Good #{timeSegment}")
   $(domEl).find('.name').text(" , #{name[0]}.") if showName
   $(domEl).find('.hour').text("#{hour}")
   $(domEl).find('.min').text("#{minutes}") 
-  $(domEl).find('.half').text("#{half}") if showAmPm
+  $(domEl).find('.half').text("#{half}") if showAmPm && !militaryTime
 
   
 
