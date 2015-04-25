@@ -40,7 +40,7 @@ style: """
    margin-top:-3%  
 
   .hour
-   margin-right:1%
+   margin-right:2%
 
   .min
    margin-left:-4%
@@ -102,8 +102,13 @@ update: (output, domEl) ->
   else
     half = "PM"
 
+  #0 Hour fix
+  hour= 12 if hour == 0;
+
   #24 - 12 Hour conversion
   hour= hour%12 if hour > 12 && !militaryTime
+
+
 
   
   
