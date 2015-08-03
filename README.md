@@ -14,3 +14,4 @@ Place `morning.widget` directory or contents of zip file into your Übersicht Wi
 
 If needed, open `morning.coffee` and adjust the `.container` margins to position the widget on your screen. 
 
+![Built with Love](http://forthebadge.com/images/badges/built-with-love.svg)
