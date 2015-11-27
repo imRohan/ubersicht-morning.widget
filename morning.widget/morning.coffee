@@ -9,7 +9,7 @@ refreshFrequency: 30000
 
 #Body Style
 style: """
-  
+
   color: #fff
   font-family: Helvetica Neue, Arial
 
@@ -27,7 +27,7 @@ style: """
    font-size: 10em
    color:#fff
    font-weight:700
-   text-align:center   
+   text-align:center
 
   .half
    font-size:0.15em
@@ -36,8 +36,8 @@ style: """
   .text
    font-size: 4em
    color:#fff
-   font-weight:700  
-   margin-top:-3%  
+   font-weight:700
+   margin-top:-3%
 
   .hour
    margin-right:2%
@@ -47,7 +47,7 @@ style: """
 
   .salutation
    margin-right:-2%
-  
+
 """
 
 #Render function
@@ -63,21 +63,22 @@ render: -> """
   <span class="name"></span>
   </div>
   </div>
-  
+
 """
 
   #Update function
-update: (output, domEl) -> 
+update: (output, domEl) ->
 
   #Options: (true/false)
-  showAmPm = true; 
-  showName = true; 
-  militaryTime = false; #Military Time = 24 hour time 
+  showAmPm = true;
+  showName = true;
+  fourTwenty = true; #Smoke Responsibly
+  militaryTime = false; #Military Time = 24 hour time
 
   #Time Segmends for the day
   segments = ["morning", "afternoon", "evening", "night"]
 
-  #Grab the name of the current user. 
+  #Grab the name of the current user.
   #If you would like to edit this, replace "output.split(' ')" with your name
   name = output.split(' ')
 
@@ -98,27 +99,28 @@ update: (output, domEl) ->
 
   #AM/PM String logic
   if hour < 12
-    half = "AM"  
+    half = "AM"
   else
     half = "PM"
 
   #0 Hour fix
   hour= 12 if hour == 0;
 
+  #420 Hour
+  if hour == 16 && minutes == 20
+    blazeIt = true
+  else
+    blazeIt = false
+
   #24 - 12 Hour conversion
-  hour= hour%12 if hour > 12 && !militaryTime
+  hour = hour%12 if hour > 12 && !militaryTime
 
-
-
-  
-  
-  #DOM manipulation 
-  $(domEl).find('.salutation').text("Good #{timeSegment}")
+  #DOM manipulation
+  if fourTwenty && blazeIt 
+    $(domEl).find('.salutation').text("Blaze It")
+  else
+    $(domEl).find('.salutation').text("Good #{timeSegment}") 
   $(domEl).find('.name').text(" , #{name[0]}.") if showName
   $(domEl).find('.hour').text("#{hour}")
-  $(domEl).find('.min').text("#{minutes}") 
+  $(domEl).find('.min').text("#{minutes}")
   $(domEl).find('.half').text("#{half}") if showAmPm && !militaryTime
-
-  
-
- 
