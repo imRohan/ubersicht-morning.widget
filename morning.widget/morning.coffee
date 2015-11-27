@@ -72,7 +72,7 @@ update: (output, domEl) ->
   #Options: (true/false)
   showAmPm = true;
   showName = true;
-  fourTwenty = true; #Smoke Responsibly
+  fourTwenty = false; #Smoke Responsibly
   militaryTime = false; #Military Time = 24 hour time
 
   #Time Segmends for the day
