@@ -79,7 +79,7 @@ update: (output, domEl) ->
   segments = ["morning", "afternoon", "evening", "night"]
 
   #Grab the name of the current user.
-  #If you would like to edit this, replace "output.split(' ')" with your name
+  #If you would like to edit this, replace "output.split(' ')" with your name (in quotation marks, such as: name = "rohan") 
   name = output.split(' ')
 
 
