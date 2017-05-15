@@ -29,13 +29,6 @@ style: """
    font-smoothing: antialiased
    text-align:center
    text-shadow:0px 0px 20px rgba(0,0,0,0.3);
-   height:300px
-   width:800px
-   font-weight: lighter
-   font-smoothing: antialiased
-   text-align:center
-   margin-left:30%
-   text-shadow:0px 0px 20px rgba(0,0,0,0.3);
 
   .time
    font-size: 10em
