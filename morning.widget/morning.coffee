@@ -13,8 +13,22 @@ style: """
   color: #fff
   font-family: Helvetica Neue, Arial
 
+  .main
+   position: relative
+   width: 100vw
+   height: 100vh
+
   .container
-   margin-top:30%
+   position: absolute
+   top: 50%
+   left: 50%
+   transform: translate(-50%, -50%)
+   height:300px
+   width:800px
+   font-weight: lighter
+   font-smoothing: antialiased
+   text-align:center
+   text-shadow:0px 0px 20px rgba(0,0,0,0.3);
    height:300px
    width:800px
    font-weight: lighter
@@ -52,6 +66,7 @@ style: """
 
 #Render function
 render: -> """
+  <div class="main">
   <div class="container">
   <div class="time">
   <span class="hour"></span>:
@@ -61,6 +76,7 @@ render: -> """
   <div class="text">
   <span class="salutation"></span>
   <span class="name"></span>
+  </div>
   </div>
   </div>
 
